@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "750424827342",
+    "project_id": "cebu-voyage",
+    "storage_bucket": "cebu-voyage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:750424827342:android:80941b15c1d9e5b792b79f",
+        "android_client_info": {
+          "package_name": "com.example.cebuvoyage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "750424827342-r88hmqht84trunf157v50bpgfd013vp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7N-_O6caM2zJ6mM6Hg0fd66xtGHCGTVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "750424827342-r88hmqht84trunf157v50bpgfd013vp7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
