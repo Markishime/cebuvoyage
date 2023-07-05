@@ -448,7 +448,7 @@ class Sidebar extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CebuCityPackagePage(),
+                      builder: (context) => HomePage(),
                     ),
                   );
                 },
@@ -462,7 +462,13 @@ class Sidebar extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  // Handle Account button click
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Account(),
+                    ),
+                  );
                 },
                 child: Text(
                   'Account',
@@ -474,7 +480,13 @@ class Sidebar extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  // Handle Booking Info button click
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PackagesPage(),
+                    ),
+                  );
                 },
                 child: Text(
                   'Booking Info',
@@ -528,552 +540,6 @@ class Sidebar extends StatelessWidget {
     );
   }
 }
-
-class NorthPackagePage extends StatelessWidget {
-  double price = 0.0;
-  double packagePrice = 1499.00;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('North Cebu Package'),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              color: Colors.blue,
-              child: Center(
-                child: Text(
-                  'North Cebu Package',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ),
-            CarouselSlider(
-              options: CarouselOptions(
-                autoPlay: true,
-                aspectRatio: 16 / 9,
-                enlargeCenterPage: true,
-              ),
-              items: [
-                Image.asset('images/north/north.png'),
-                Image.asset('images/north/gugma.jpg'),
-                Image.asset('images/north/langob.jpg'),
-                Image.asset('images/north/mala.jpg'),
-                Image.asset('images/north/light.jpg'),
-              ],
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Package Price: ₱$packagePrice',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Transportation',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  ListTile(
-                    title: Text('Motorcycle - ₱100'),
-                    onTap: () {
-                      price = 100.0;
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Sedan - ₱150'),
-                    onTap: () {
-                      price = 150.0;
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Van - ₱200'),
-                    onTap: () {
-                      price = 200.0;
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Pick-up Place',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Enter pick-up place',
-                    ),
-                    onChanged: (value) {
-                      // Handle pick-up place input
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Drop-off Place',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Enter drop-off place',
-                    ),
-                    onChanged: (value) {
-                      // Handle drop-off place input
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Mode of Payment',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  ListTile(
-                    title: Text('GCash'),
-                    onTap: () {
-                      // Handle mode of payment selection
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Credit Card (Bank Transfer)'),
-                    onTap: () {
-                      // Handle mode of payment selection
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle book now button click
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => BookingPage(price: packagePrice)),
-                  );
-                },
-                child: Text('Select'),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-class CebuCityPackagePage extends StatelessWidget {
-  double price = 0.0;
-  double packagePrice = 999.00;
-
-  @override
-  Widget build(BuildContext context) {
-  return Scaffold(
-  appBar: AppBar(
-  title: Text('Cebu City Package'),
-  ),
-  body: SingleChildScrollView(
-  child: Column(
-  children: [
-  Container(
-  color: Colors.blue,
-  child: Center(
-  child: Text(
-  'Cebu City Package',
-  style: TextStyle(
-  fontSize: 24,
-  fontWeight: FontWeight.bold,
-  color: Colors.black,
-  ),
-  ),
-  ),
-  ),
-  CarouselSlider(
-  options: CarouselOptions(
-  autoPlay: true,
-  aspectRatio: 16 / 9,
-  enlargeCenterPage: true,
-  ),
-  items: [
-    Image.asset('images/city/city.png'),
-    Image.asset('images/city/ayala.jpg'),
-    Image.asset('images/city/fort.jpg'),
-    Image.asset('images/city/mage.jpg'),
-    Image.asset('images/city/taoist.jpg'),
-  ],
-  ),
-  Container(
-  padding: EdgeInsets.all(12),
-  child: Column(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-  Text(
-  'Package Price: ₱$packagePrice',
-  style: TextStyle(
-  fontSize: 16,
-  fontWeight: FontWeight.bold,
-  ),
-  ),
-  ],
-  ),
-  ),
-  Container(
-  padding: EdgeInsets.all(12),
-  child: Column(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-  Text(
-  'Transportation',
-  style: TextStyle(
-  fontSize: 10,
-  fontWeight: FontWeight.bold,
-  ),
-  ),
-  ListTile(
-  title: Text('Motorcycle - ₱100'),
-  onTap: () {
-  price = 100.0;
-  },
-  ),
-  ListTile(
-  title: Text('Sedan - ₱150'),
-  onTap: () {
-  price = 150.0;
-  },
-  ),
-  ListTile(
-  title: Text('Van - ₱200'),
-  onTap: () {
-  price = 200.0;
-  },
-  ),
-  ],
-  ),
-  ),
-  Container(
-  padding: EdgeInsets.all(12),
-  child: Column(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-  Text(
-  'Pick-up Place',
-  style: TextStyle(
-  fontSize: 10,
-  fontWeight: FontWeight.bold,
-  ),
-  ),
-  TextField(
-  decoration: InputDecoration(
-  hintText: 'Enter pick-up place',
-  ),
-  onChanged: (value) {
-  // Handle pick-up place input
-  },
-  ),
-  ],
-  ),
-  ),
-  Container(
-  padding: EdgeInsets.all(12),
-  child: Column(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-  Text(
-  'Drop-off Place',
-  style: TextStyle(
-  fontSize: 10,
-  fontWeight: FontWeight.bold,
-  ),
-  ),
-  TextField(
-  decoration: InputDecoration(
-  hintText: 'Enter drop-off place',
-  ),
-  onChanged: (value) {
-  // Handle drop-off place input
-  },
-  ),
-  ],
-  ),
-  ),
-  Container(
-  padding: EdgeInsets.all(12),
-  child: Column(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-  Text(
-  'Mode of Payment',
-  style: TextStyle(
-  fontSize: 10,
-  fontWeight: FontWeight.bold,
-  ),
-  ),
-  ListTile(
-  title: Text('GCash'),
-  onTap: () {
-  // Handle mode of payment selection
-  },
-  ),
-  ListTile(
-  title: Text('Credit Card (Bank Transfer)'),
-  onTap: () {
-  // Handle mode of payment selection
-  },
-  ),
-  ],
-  ),
-  ),
-  Container(
-  padding: EdgeInsets.all(12),
-  child: ElevatedButton(
-  onPressed: () {
-  // Handle book now button click
-  Navigator.push(
-  context,
-  MaterialPageRoute(builder: (context) => BookingPage(price: packagePrice)),
-  );
-  },
-  child: Text('Select'),
-  ),
-  ),
-  ],
-  ),
-  ),
-  );
-  }
-  }
-
-
-class SouthPackagePage extends StatelessWidget {
-  double price = 0.0;
-  double packagePrice = 1999.00;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('South Cebu Package'),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              color: Colors.blue,
-              child: Center(
-                child: Text(
-                  'South Cebu Package',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ),
-            CarouselSlider(
-              options: CarouselOptions(
-                autoPlay: true,
-                aspectRatio: 16 / 9,
-                enlargeCenterPage: true,
-              ),
-              items: [
-                Image.asset('images/south/south.png'),
-                Image.asset('images/south/1.png'),
-                Image.asset('images/south/2.png'),
-                Image.asset('images/south/3.png'),
-                Image.asset('images/south/4.png'),
-              ],
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Package Price: ₱$packagePrice',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Transportation',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  ListTile(
-                    title: Text('Motorcycle - ₱100'),
-                    onTap: () {
-                      price = 100.0;
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Sedan - ₱150'),
-                    onTap: () {
-                      price = 150.0;
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Van - ₱200'),
-                    onTap: () {
-                      price = 200.0;
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Pick-up Place',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Enter pick-up place',
-                    ),
-                    onChanged: (value) {
-                      // Handle pick-up place input
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Drop-off Place',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Enter drop-off place',
-                    ),
-                    onChanged: (value) {
-                      // Handle drop-off place input
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Mode of Payment',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  ListTile(
-                    title: Text('GCash'),
-                    onTap: () {
-                      // Handle mode of payment selection
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Credit Card (Bank Transfer)'),
-                    onTap: () {
-                      // Handle mode of payment selection
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle book now button click
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => BookingPage(price: packagePrice)),
-                  );
-                },
-                child: Text('Select'),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class BackgroundMainClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
@@ -1107,6 +573,46 @@ class DiagonalClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
     return true;
+  }
+}
+
+class Account extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+  return Scaffold(
+  appBar: AppBar(
+  title: Text('ANG AKONG GUSTO I SOLTI KAY'),
+  ),
+  body: Container(
+  decoration: BoxDecoration(
+  gradient: LinearGradient(
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+  colors: [Colors.black, Colors.blue, Colors.black26],
+  ),
+  ),
+  child: Center(
+  child: Padding(
+  padding: EdgeInsets.all(16.0),
+  child: Column(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: <Widget>[
+  Text(
+  'MAPASAR TANG TANAN LEZGOOO',
+  style: TextStyle(
+  fontSize: 30,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  ),
+  ),
+  // Add your booking details widgets here
+  ],
+  ),
+  ),
+  ),
+  ),
+  );
   }
 }
 
@@ -1156,7 +662,6 @@ class BookingPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     // Perform booking confirmation and database insertion here
-
                     // Display a success message
                     showDialog(
                       context: context,
@@ -1206,6 +711,10 @@ class PackagesPage extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        title: Text(
+          'Packages',
+          style: TextStyle(fontSize: 20),
+        ),
         centerTitle: true,
         actions: [
           IconButton(
@@ -1272,25 +781,7 @@ class PackagesPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(height: 20, color: Color(0xFF265591)),
                   ],
-                ),
-                Positioned(
-                  left: 10,
-                  top: 10,
-                  child: InkWell(
-                    onTap: () {
-                      _scaffoldKey.currentState!.openDrawer();
-                    },
-                    child: CircleAvatar(
-                      radius: 20,
-                      backgroundColor: Colors.white,
-                      child: Text(
-                        'M',
-                        style: TextStyle(fontSize: 18.0, color: Colors.blue),
-                      ),
-                    ),
-                  ),
                 ),
                 Positioned(
                   top: 15,
@@ -1311,60 +802,124 @@ class PackagesPage extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              children: [
-                Sidebar(),
-                Expanded(
-                  flex: 2,
-                  child: Container(
+            Padding(
+              padding: const EdgeInsets.all(0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'PACKAGES:',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              color: Color(0xFFF9D392),
+              padding: EdgeInsets.all(30),
+              child: Row(
+                children: [
+                  DestinationCard(
+                    image: AssetImage('images/first_page/2.png'),
+                    description: '',
+                  ),
+                  SizedBox(width: 20),
+                  Container(
+                    width: 250,
+                    padding: EdgeInsets.all(22),
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0xFF245790),
-                          Color(0xFFF9D392),
-                          Color(0xFF9EC6CE)
-                        ],
-                      ),
+                      color: Colors.lightBlueAccent,
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'Choose your Package',
-                              style: TextStyle(
-                                fontSize: 35,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 20),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            DestinationCard(
-                              image: AssetImage('images/first_page/1.png'),
-                            ),
-                            DestinationCard(
-                              image: AssetImage('images/first_page/2.png'),
-                            ),
-                            DestinationCard(
-                              image: AssetImage('images/first_page/3.png'),
-                            ),
-                          ],
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 10),
+                        Text(
+                          'OSLOB WHALE SHARK + SUMILON SANDBAR + KAWASAN FALLS TOUR PACKAGE.',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
                       ],
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
+            ),
+            Container(
+              color: Color(0xFFF9D392),
+              padding: EdgeInsets.all(30),
+              child: Row(
+                children: [
+                  DestinationCard(
+                    image: AssetImage('images/first_page/2.png'),
+                    description: '',
+                  ),
+                  SizedBox(width: 20),
+                  Container(
+                    width: 250,
+                    padding: EdgeInsets.all(22),
+                    decoration: BoxDecoration(
+                      color: Colors.lightBlueAccent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 10),
+                        Text(
+                          'OSLOB WHALE SHARK + SUMILON SANDBAR + TUMALOG FALLS TOUR PACKAGE.',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              color: Color(0xFFF9D392),
+              padding: EdgeInsets.all(30),
+              child: Row(
+                children: [
+                  DestinationCard(
+                    image: AssetImage('images/first_page/2.png'),
+                    description: '',
+                  ),
+                  SizedBox(width: 20),
+                  Container(
+                    width: 250,
+                    padding: EdgeInsets.all(22),
+                    decoration: BoxDecoration(
+                      color: Colors.lightBlueAccent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 10),
+                        Text(
+                          'OSLOB WHALE SHARK + TUMALOG FALLS + BADIAN CANYONEERING IN KAWASAN FALLS TOUR PACKAGE.',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -1376,16 +931,20 @@ class PackagesPage extends StatelessWidget {
 
 class DestinationCard extends StatelessWidget {
   final ImageProvider<Object> image;
+  final String description;
 
-  const DestinationCard({required this.image});
+  const DestinationCard({
+    required this.image,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        width: 120,
-        height: 120,
+        width: 160, // Increase the width value to enlarge the container
+        height: 160, // Increase the height value to enlarge the container
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
@@ -1403,10 +962,16 @@ class DestinationCard extends StatelessWidget {
                 bottomRight: Radius.circular(10),
               ),
             ),
-            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10), // Adjust the padding values for more space
             child: ElevatedButton(
               onPressed: () {
-                // Handle button press
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Package1(),
+                  ),
+                );
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.transparent,
@@ -1429,6 +994,282 @@ class DestinationCard extends StatelessWidget {
     );
   }
 }
+
+class Package1 extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: AppBar(
+        title: Text(
+          'Packages',
+          style: TextStyle(fontSize: 20),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              // Open user dropdown or perform user-related action
+            },
+            icon: Icon(Icons.account_circle),
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      color: Color(0xFF265591),
+                      height: 60,
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Container(
+                      color: Color(0xFFF9D392),
+                      height: 7,
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Container(
+                      color: Color(0xFF265591),
+                      height: 200,
+                      width: MediaQuery.of(context).size.width,
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Opacity(
+                            opacity: 0.5,
+                            child: Image.network(
+                              'images/first_page/temple.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              SizedBox(height: 60),
+                              Text(
+                                "OSLOB WHALE SHARK + SUMILON SANDBAR + KAWASAN FALLS TOUR PACKAGE",
+                                style: GoogleFonts.fredoka(
+                                  fontSize: 35,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(height: 20, color: Color(0xFF265591)),
+                  ],
+                ),
+                Positioned(
+                  top: 15,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    alignment: Alignment.center,
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Color(0xFFF9D392),
+                      child: CircleAvatar(
+                        radius: 45,
+                        backgroundImage: AssetImage(
+                          'images/first_page/Cebu Voyage-logos.jpeg',
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Container(
+              height: 250, // Set the desired height for the images
+              child: CarouselSlider(
+                options: CarouselOptions(
+                  autoPlay: true,
+                  aspectRatio: 16 / 9,
+                  enlargeCenterPage: true,
+                ),
+                items: [
+                  Image.asset('images/north/north1.jpeg'),
+                  Image.asset('images/north/north2.jpg'),
+                  Image.asset('images/south/south1.jpg'),
+                  Image.asset('images/south/south2.jpg'),
+                  Image.asset('images/city/city1.jpg'),
+                  Image.asset('images/city/city2.jpg'),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              color: Color(0xFFF9D392),
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                'INCLUSIVE:\nPrivate Tour (10 hours duration, excess hours are chargeable)\nPrivate Transportation - Pick up and drop off in any hotel, resort and residences (Cebu City and Mactan Island) '
+                    '\nDOT trained local guard\nLight breakfast\nLunch with soft drinks or water\nSnorkeling or Swimming Free with the whale sharks\nBoat ride and life vest\nKawasan Falls, entrace fee included '
+                    '\nGovernment Taxes and Fees'
+                    '\n\n EXCLUSIVE/ADD-ONS:\nCamera Rental (P1000 for GoPro, Hero5 and up - SD card not included) - (bring micro SD class 10) \nSimala Side trip: 1-3 Persons (P600), 4-6 Persons (P700) '
+                  ', 7-12 Persons (P800)'
+                    '\n\n SAMPLE ITINERARY: \n04:00 AM – Pick up from the hotel\n06:30 AM – Light Breakfast in Oslob\n07:30 AM – Swimming or Snorkeling with the Whale Sharks\n08:30 AM – Cool Down at Tumalog Falls (You can ride a motorbike for additional P50 per person) '
+                    '\n10:00 AM – Lunch with One Round of soft drinks\n11:00 AM – Prepare to go back to the City\n02:00 PM – Arrival in the Hotel',
+                style: GoogleFonts.fredoka(
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class Package2 extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: AppBar(
+        title: Text(
+          'Packages',
+          style: TextStyle(fontSize: 20),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              // Open user dropdown or perform user-related action
+            },
+            icon: Icon(Icons.account_circle),
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      color: Color(0xFF265591),
+                      height: 60,
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Container(
+                      color: Color(0xFFF9D392),
+                      height: 7,
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Container(
+                      color: Color(0xFF265591),
+                      height: 200,
+                      width: MediaQuery.of(context).size.width,
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Opacity(
+                            opacity: 0.5,
+                            child: Image.network(
+                              'images/first_page/temple.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              SizedBox(height: 60),
+                              Text(
+                                "OSLOB WHALE SHARK + SUMILON SANDBAR + KAWASAN FALLS TOUR PACKAGE",
+                                style: GoogleFonts.fredoka(
+                                  fontSize: 35,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(height: 20, color: Color(0xFF265591)),
+                  ],
+                ),
+                Positioned(
+                  top: 15,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    alignment: Alignment.center,
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Color(0xFFF9D392),
+                      child: CircleAvatar(
+                        radius: 45,
+                        backgroundImage: AssetImage(
+                          'images/first_page/Cebu Voyage-logos.jpeg',
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Container(
+              height: 250, // Set the desired height for the images
+              child: CarouselSlider(
+                options: CarouselOptions(
+                  autoPlay: true,
+                  aspectRatio: 16 / 9,
+                  enlargeCenterPage: true,
+                ),
+                items: [
+                  Image.asset('images/north/north1.jpeg'),
+                  Image.asset('images/north/north2.jpg'),
+                  Image.asset('images/south/south1.jpg'),
+                  Image.asset('images/south/south2.jpg'),
+                  Image.asset('images/city/city1.jpg'),
+                  Image.asset('images/city/city2.jpg'),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              color: Color(0xFFF9D392),
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                'INCLUSIVE:\nPrivate Tour (10 hours duration, excess hours are chargeable)\nPrivate Transportation - Pick up and drop off in any hotel, resort and residences (Cebu City and Mactan Island) '
+                    '\nDOT trained local guard\nLight breakfast\nLunch with soft drinks or water\nSnorkeling or Swimming Free with the whale sharks\nBoat ride and life vest\nKawasan Falls, entrace fee included '
+                    '\nGovernment Taxes and Fees'
+                    '\n\n EXCLUSIVE/ADD-ONS:\nCamera Rental (P1000 for GoPro, Hero5 and up - SD card not included) - (bring micro SD class 10) \nSimala Side trip: 1-3 Persons (P600), 4-6 Persons (P700) '
+                    ', 7-12 Persons (P800)'
+                    '\n\n SAMPLE ITINERARY: \n04:00 AM – Pick up from the hotel\n06:30 AM – Light Breakfast in Oslob\n07:30 AM – Swimming or Snorkeling with the Whale Sharks\n08:30 AM – Cool Down at Tumalog Falls (You can ride a motorbike for additional P50 per person) '
+                    '\n10:00 AM – Lunch with One Round of soft drinks\n11:00 AM – Prepare to go back to the City\n02:00 PM – Arrival in the Hotel',
+                style: GoogleFonts.fredoka(
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
 
 
 
